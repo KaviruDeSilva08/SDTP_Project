@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row['spsw'])) {
             // Password is correct, redirect to dashboard or wherever you want
-            header("Location: ../index.php");
+            header("Location: datashow.php");
             exit();
         } else {
             // Password is incorrect
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Username not found
         $_SESSION['error_message'] = "User not found.";
     }
-    header("Location: ../index.php"); // Redirect to landlords.php to display the error message
+    header("Location: datashow.php"); // Redirect to landlords.php to display the error message
     exit();
 }
 ?>
