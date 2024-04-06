@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2024 at 06:26 AM
+-- Generation Time: Apr 06, 2024 at 05:04 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,8 +41,34 @@ CREATE TABLE `landlords` (
 
 INSERT INTO `landlords` (`lid`, `lusern`, `lemail`, `lpsw`, `lcn`) VALUES
 (1001, 'sktdesilva', 'skt@gamail.com', '12345678', 766045278),
-(1002, 'rjganegama', 'rj@gamail.con', '87654321', 771234567),
-(1003, 'pasan', 'pasan@gamai.com', '78945612', 784561238);
+(1002, 'rjganegama', 'rj@gamail.con', '87654321', 771234567);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `properties`
+--
+
+CREATE TABLE `properties` (
+  `pid` int(11) NOT NULL,
+  `pname` text DEFAULT NULL,
+  `ownern` text DEFAULT NULL,
+  `paddress` text DEFAULT NULL,
+  `pcn` int(10) NOT NULL,
+  `price` int(6) DEFAULT NULL,
+  `latitude` varchar(50) DEFAULT NULL,
+  `longitude` varchar(50) DEFAULT NULL,
+  `suitable` text NOT NULL,
+  `description` text NOT NULL,
+  `pimage` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `properties`
+--
+
+INSERT INTO `properties` (`pid`, `pname`, `ownern`, `paddress`, `pcn`, `price`, `latitude`, `longitude`, `suitable`, `description`, `pimage`) VALUES
+(4, 'Siri Samanmal ', 'Samantha ', 'Siri Samanmal Residence Pitipana', 765237891, 12000, '80.04425648786945', '6.823856635813669', 'Boys', 'comfateble boding place , have water , curent 24 hours ', 'uploads/thumbnail.jpg');
 
 -- --------------------------------------------------------
 
@@ -97,6 +123,12 @@ ALTER TABLE `landlords`
   ADD PRIMARY KEY (`lid`);
 
 --
+-- Indexes for table `properties`
+--
+ALTER TABLE `properties`
+  ADD PRIMARY KEY (`pid`);
+
+--
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
@@ -107,6 +139,16 @@ ALTER TABLE `students`
 --
 ALTER TABLE `warden`
   ADD PRIMARY KEY (`wid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `properties`
+--
+ALTER TABLE `properties`
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
