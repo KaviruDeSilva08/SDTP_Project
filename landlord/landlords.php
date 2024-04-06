@@ -3,12 +3,10 @@
 <head>
     <title>Login landlords</title>
     <?php
-    session_start(); // Start the session
+    session_start(); 
 
-    // Check if there's an error message stored in the session
-    $error_message = isset($_SESSION['error_message']) ? $_SESSION['error_message'] : ""; // Set default value if no error message is present
+    $error_message = isset($_SESSION['error_message']) ? $_SESSION['error_message'] : ""; 
 
-    // Clear the error message from session if it exists
     unset($_SESSION['error_message']);
     ?>
     <style>
@@ -114,7 +112,7 @@
 </div>
 <div class="container">
     <h1>Login Landlords</h1>
-    <!-- Display error message if present -->
+    
     <?php
     if(isset($_SESSION['error_message'])) {
         echo '<div class="error-message">' . $_SESSION['error_message'] . '</div>';

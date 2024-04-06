@@ -113,11 +113,11 @@
 
 <div class="container">
 
-<h1>Property List</h1>
+<h1>Hostels List</h1>
 
 <table>
     <tr>
-        <th>Property Name</th>
+        <th>Hostel Name</th>
         <th>Owner</th>
         <th>Address</th>
         <th>Contact Number</th>
@@ -130,16 +130,16 @@
         <th class="button-column">Actions</th>
     </tr>
     <?php
-    // Include database connection file
-    include('../conn.php'); // Adjust the path as necessary
+    
+    include('../conn.php'); 
 
-    // Fetch data from the properties table
+   
     $sql = "SELECT * FROM properties";
     $result = $conn->query($sql);
 
-    // Check if there are any records
+    
     if ($result->num_rows > 0) {
-        // Output data of each row
+        
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
             echo "<td>" . $row["pname"] . "</td>";
@@ -169,11 +169,11 @@
 
 <div class="container2">
 
-<h1>Approved Property List</h1>
+<h1>Approved Hostels List</h1>
 
 <table>
     <tr>
-        <th>Property Name</th>
+        <th>Hostel Name</th>
         <th>Owner</th>
         <th>Address</th>
         <th>Contact Number</th>
@@ -186,16 +186,16 @@
         <th class="button-column">Actions</th>
     </tr>
     <?php
-    // Include database connection file
-    include('../conn.php'); // Adjust the path as necessary
+    
+    include('../conn.php'); 
 
-    // Fetch data from the properties table
+    
     $sql = "SELECT * FROM aproperties";
     $result = $conn->query($sql);
 
-    // Check if there are any records
+    
     if ($result->num_rows > 0) {
-        // Output data of each row
+        
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
             echo "<td>" . $row["apname"] . "</td>";
@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function() {
     approveButtons.forEach(button => {
         button.addEventListener('click', function() {
             var id = this.getAttribute('data-id');
-            // Send an AJAX request to approve property
+            
             fetch('approve_property.php', {
                 method: 'POST',
                 body: JSON.stringify({id: id}),
@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
     removeButtons.forEach(button => {
         button.addEventListener('click', function() {
             var id = this.getAttribute('data-id');
-            // Send an AJAX request to remove property
+           
             fetch('remove_property.php', {
                 method: 'POST',
                 body: JSON.stringify({id: id}),

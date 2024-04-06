@@ -1,5 +1,5 @@
 <?php
-// Include database connection file
+
 include('../conn.php');
 
 // Check if the form is submitted
@@ -20,6 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
-// Close connection (optional, as PHP automatically closes it at the end of the script execution)
+
 $conn->close();
 ?>

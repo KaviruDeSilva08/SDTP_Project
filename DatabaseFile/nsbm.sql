@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2024 at 05:04 PM
+-- Generation Time: Apr 07, 2024 at 12:53 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `nsbm`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `aproperties`
+--
+
+CREATE TABLE `aproperties` (
+  `apid` int(50) NOT NULL,
+  `apname` text NOT NULL,
+  `apowner` text NOT NULL,
+  `apaddress` text NOT NULL,
+  `apcn` int(10) NOT NULL,
+  `aprice` int(10) NOT NULL,
+  `alatitude` varchar(50) NOT NULL,
+  `alongitude` varchar(50) NOT NULL,
+  `asuitable` text NOT NULL,
+  `adescription` text NOT NULL,
+  `aimage` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `aproperties`
+--
+
+INSERT INTO `aproperties` (`apid`, `apname`, `apowner`, `apaddress`, `apcn`, `aprice`, `alatitude`, `alongitude`, `asuitable`, `adescription`, `aimage`) VALUES
+(1, 'Siri Samanmal', 'Samantha', 'Siri Samanmal Residence Pitipana', 765237891, 12000, '6.823856635813669 ', '80.04425648786945', '	Boys', 'comfateble boding place , have water , curent 24 hours', '');
 
 -- --------------------------------------------------------
 
@@ -117,6 +144,12 @@ INSERT INTO `warden` (`wid`, `wusern`, `wemail`, `wpsw`, `wcn`) VALUES
 --
 
 --
+-- Indexes for table `aproperties`
+--
+ALTER TABLE `aproperties`
+  ADD PRIMARY KEY (`apid`);
+
+--
 -- Indexes for table `landlords`
 --
 ALTER TABLE `landlords`
@@ -143,6 +176,12 @@ ALTER TABLE `warden`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `aproperties`
+--
+ALTER TABLE `aproperties`
+  MODIFY `apid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `properties`

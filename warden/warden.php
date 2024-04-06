@@ -3,12 +3,11 @@
 <head>
     <title>Login landlords</title>
     <?php
-    session_start(); // Start the session
+    session_start(); 
+    
+    $error_message = isset($_SESSION['error_message']) ? $_SESSION['error_message'] : ""; 
 
-    // Check if there's an error message stored in the session
-    $error_message = isset($_SESSION['error_message']) ? $_SESSION['error_message'] : ""; // Set default value if no error message is present
-
-    // Clear the error message from session if it exists
+    
     unset($_SESSION['error_message']);
     ?>
     <style>
@@ -120,7 +119,7 @@
         <?php
     if(isset($_SESSION['error_message'])) {
         echo '<div class="error-message">' . $_SESSION['error_message'] . '</div>';
-        unset($_SESSION['error_message']); // Clear the error message from session
+        unset($_SESSION['error_message']); 
     }
     ?>
         <form action="wardenlogin.php" method="post" onsubmit="return validateForm()">

@@ -1,10 +1,10 @@
 <?php
-// Include database connection file
-include('../conn.php'); // Adjust the path as necessary
 
-// Check if the form is submitted
+include('../conn.php'); 
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validate and sanitize input data
+    
     $place_name = htmlspecialchars($_POST["place_name"]);
     $owner_name = htmlspecialchars($_POST["owner_name"]);
     $address = htmlspecialchars($_POST["address"]);
@@ -15,13 +15,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $suitable = htmlspecialchars($_POST["suitable"]);
     $description = htmlspecialchars($_POST["description"]);
 
-    // Handle file upload
+    
     $target_dir = "uploads/"; // Ensure this directory exists and is writable
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-    // Check if image file is an actual image or fake image
+    
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["image"]["tmp_name"]);
         if($check !== false) {
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Attempt to upload file if it's OK
+   
     if ($uploadOk == 0) {
         echo '<script>alert("Sorry, your file was not uploaded.");</script>';
     } else {
@@ -44,11 +44,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Prepare SQL query to insert data into the database
+    
     $sql = $conn->prepare("INSERT INTO properties (pname, ownern, paddress, pcn, price, latitude, longitude, suitable, description, pimage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $sql->bind_param("ssssddssss", $place_name, $owner_name, $address, $contact_number, $price, $latitude, $longitude, $suitable, $description, $target_file);
 
-    // Execute query and check for success
+    
     if ($sql->execute()) {
         echo '<script>alert("Property registered successfully");</script>';
     } else {
